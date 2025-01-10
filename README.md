@@ -1,6 +1,6 @@
 # FP_mult-div_class24-25
 
 jesus
-Díaz Marín Emmanuel push test
+Díaz Marín Emmanuel
 Kevin Omar Araujo Pineda
 Emiliano MorGar
