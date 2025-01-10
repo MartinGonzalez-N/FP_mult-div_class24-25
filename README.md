@@ -2,7 +2,7 @@
 
 jesus
 Díaz Marín Emmanuel
-Kevin Omar Araujo Pineda
+Kevin
 Emiliano MorGar
 Jose Eduardo López Bugarín
 
