@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -43,6 +44,7 @@ module normalizer_tb();
             norm_if.SET_ARST_TO(1'b0);
             norm_if.SET_ENABLE_TO(1'b1);
             norm_if.RANDOM_NORMAL_MANTISSA_TESTS(100);
+            $finish;
         end
     `endif
 
@@ -51,6 +53,7 @@ module normalizer_tb();
             norm_if.SET_ARST_TO(1'b0);
             norm_if.SET_ENABLE_TO(1'b1);
             norm_if.RANDOM_UNNORMAL_MANTISSA_TESTS(100);
+            $finish;
         end
     `endif
 
