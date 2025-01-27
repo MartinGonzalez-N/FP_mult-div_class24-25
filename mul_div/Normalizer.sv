@@ -3,7 +3,7 @@
 module Normalizer(
     input [47:0] mantisa_mul,
     input [9:0] exponent_add,
-    input sel, clk, arst, en,
+    input sel, clk, arst, en,               // MESSAGE TO DESIGNERS: sel signal not used 
     output [25:0] mantisa_normalize,
     output [7:0] exponent_simple
     );
@@ -30,3 +30,9 @@ module Normalizer(
     end
     
 endmodule
+
+
+
+task RANDOM_MANTISSA_TESTS();
+    
+endtask
