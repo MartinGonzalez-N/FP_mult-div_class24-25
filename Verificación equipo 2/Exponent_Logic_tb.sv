@@ -1,6 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module Exponent_Logic_tb;
 
 Exponent_Logic_inf Exponent_Logic_inf_i();
@@ -20,26 +17,59 @@ Exponent_Logic DUT(
 
     always #1 Exponent_Logic_inf_i.clk = ~Exponent_Logic_inf_i.clk;    
 
-    `define TEST1
+    //`define TEST1
+    `define TEST2    
+    //`define TEST3
+    //`define TEST2
 
     `ifdef TEST1
         // Prueba 1 - 
         //////////////////////////////////////////////
         // 1. Generar entradas aleatorias con       //
-        // en 1 y sel 0                             //
+        // en 1 y sel 0; en = 1, sel = 1            //
         //////////////////////////////////////////////
         initial begin
             repeat(500) begin
                 @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs_enabled_sel_0(); 
-                $display("e_a: %0d", Exponent_Logic_inf_i.eA);
-                $display("e_b: %0d", Exponent_Logic_inf_i.eB); 
-                $display("Result: %0d", Exponent_Logic_inf_i.e);            
+                Exponent_Logic_inf_i.radmon_inputs_enabled_sel_0();          
+            end
+            repeat(500) begin
+                @(posedge Exponent_Logic_inf_i.clk); 
+                Exponent_Logic_inf_i.radmon_inputs_enabled_sel_1();          
             end
                 #2 $finish;   
         end
         
     `endif
+      `ifdef TEST2
+        // Prueba 1 - 
+        //////////////////////////////////////////////
+        // 1. Generar entradas aleatorias           //
+        // e incorpora un resteo                    //
+        //////////////////////////////////////////////
+        initial begin
+            repeat(200) begin
+                @(posedge Exponent_Logic_inf_i.clk); 
+                Exponent_Logic_inf_i.radmon_inputs();          
+            end
+            Exponent_Logic_inf_i.arst = 1;
+            #5 Exponent_Logic_inf_i.arst = 0;
+            repeat(100) begin
+                @(posedge Exponent_Logic_inf_i.clk); 
+                Exponent_Logic_inf_i.radmon_inputs();          
+            end
+            Exponent_Logic_inf_i.arst = 1;
+            #3 Exponent_Logic_inf_i.arst = 0;            
+            repeat(200) begin
+                @(posedge Exponent_Logic_inf_i.clk); 
+                Exponent_Logic_inf_i.radmon_inputs();          
+            end            
+                #2 $finish;   
+        end
+        
+    `endif  
+    
+    
 endmodule
 
 interface Exponent_Logic_inf ();
@@ -66,4 +96,19 @@ interface Exponent_Logic_inf ();
         std::randomize(eA);
         std::randomize(eB);    
     endfunction
+ 
+     function radmon_inputs_enabled_sel_1();
+        en=1;
+        sel=1;
+        std::randomize(eA);
+        std::randomize(eB);    
+    endfunction
+       
+    function radmon_inputs();
+        std::randomize(en);
+        std::randomize(sel);
+        std::randomize(eA);
+        std::randomize(eB);    
+    endfunction
+    
 endinterface: Exponent_Logic_inf
