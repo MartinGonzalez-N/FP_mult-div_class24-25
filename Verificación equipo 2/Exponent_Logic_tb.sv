@@ -1,21 +1,21 @@
-module Exponent_Logic_tb;
+module exponent_Logic_tb;
 
-Exponent_Logic_inf Exponent_Logic_inf_i();
+exponent_Logic_inf exponent_Logic_inf_i();
 
     //bit clk;
     
 Exponent_Logic DUT(
  
-    .eA(Exponent_Logic_inf_i.eA), 
-    .eB(Exponent_Logic_inf_i.eB),
-    .clk(Exponent_Logic_inf_i.clk), 
-    .arst(Exponent_Logic_inf_i.arst), 
-    .en(Exponent_Logic_inf_i.en), 
-    .sel(Exponent_Logic_inf_i.sel),
-    .e(Exponent_Logic_inf_i.e) 
+    .eA(exponent_Logic_inf_i.eA), 
+    .eB(exponent_Logic_inf_i.eB),
+    .clk(exponent_Logic_inf_i.clk), 
+    .arst(exponent_Logic_inf_i.arst), 
+    .en(exponent_Logic_inf_i.en), 
+    .sel(exponent_Logic_inf_i.sel),
+    .e(exponent_Logic_inf_i.e) 
 );
 
-    always #1 Exponent_Logic_inf_i.clk = ~Exponent_Logic_inf_i.clk;    
+    always #1 exponent_Logic_inf_i.clk = ~exponent_Logic_inf_i.clk;    
 
     //`define TEST1
     `define TEST2    
@@ -30,12 +30,12 @@ Exponent_Logic DUT(
         //////////////////////////////////////////////
         initial begin
             repeat(500) begin
-                @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs_enabled_sel_0();          
+                @(posedge exponent_Logic_inf_i.clk); 
+                exponent_Logic_inf_i.radmon_inputs_enabled_sel_0();          
             end
             repeat(500) begin
-                @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs_enabled_sel_1();          
+                @(posedge exponent_Logic_inf_i.clk); 
+                exponent_Logic_inf_i.radmon_inputs_enabled_sel_1();          
             end
                 #2 $finish;   
         end
@@ -49,20 +49,20 @@ Exponent_Logic DUT(
         //////////////////////////////////////////////
         initial begin
             repeat(200) begin
-                @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs();          
+                @(posedge exponent_Logic_inf_i.clk); 
+                exponent_Logic_inf_i.radmon_inputs();          
             end
-            Exponent_Logic_inf_i.arst = 1;
-            #5 Exponent_Logic_inf_i.arst = 0;
+            exponent_Logic_inf_i.arst = 1;
+            #5 exponent_Logic_inf_i.arst = 0;
             repeat(100) begin
-                @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs();          
+                @(posedge exponent_Logic_inf_i.clk); 
+                exponent_Logic_inf_i.radmon_inputs();          
             end
-            Exponent_Logic_inf_i.arst = 1;
-            #3 Exponent_Logic_inf_i.arst = 0;            
+            exponent_Logic_inf_i.arst = 1;
+            #3 exponent_Logic_inf_i.arst = 0;            
             repeat(200) begin
-                @(posedge Exponent_Logic_inf_i.clk); 
-                Exponent_Logic_inf_i.radmon_inputs();          
+                @(posedge exponent_Logic_inf_i.clk); 
+                exponent_Logic_inf_i.radmon_inputs();          
             end            
                 #2 $finish;   
         end
@@ -72,7 +72,7 @@ Exponent_Logic DUT(
     
 endmodule
 
-interface Exponent_Logic_inf ();
+interface exponent_Logic_inf ();
 
     logic [7:0] eA, eB;
     logic clk, arst, en, sel;
@@ -111,4 +111,4 @@ interface Exponent_Logic_inf ();
         std::randomize(eB);    
     endfunction
     
-endinterface: Exponent_Logic_inf
+endinterface: exponent_Logic_inf
