@@ -1,28 +1,28 @@
 `timescale 1ns / 1ps
 
 module mul_div(
-    input [31:0] A, B,
+    input [31:0] a, b,
     input clk, arst, en, sel,
     output [31:0] R,
-    output IO, DZ, OF, UF, I
+    output io_flag, dz_flag, of_flag, uf_flag, i_flag
     );
     
     wire [9:0] temp1;
     wire [47:0] temp2;
     wire [25:0] temp3;
     
-    Sign_Logic Sign_Logic_i(
-        .sA(A[31]),
-        .sB(B[31]),
+    sign_logic sign_logic_i(
+        .sa(a[31]),
+        .sb(b[31]),
         .clk(clk),
         .arst(arst), 
         .en(en),
         .sR(R[31])
     );
     
-    Exponent_Logic Exponent_Logic_i(
-        .eA(A[30:23]), 
-        .eB(B[30:23]),
+    exponent_logic exponent_logic_i(
+        .ea(a[30:23]), 
+        .eb(b[30:23]),
         .clk(clk),
         .arst(arst),
         .en(en),
@@ -31,12 +31,12 @@ module mul_div(
     );
     
     mul_cascode #(.N(24)) mul_cascode_i (
-        .x({1'b1,A[22:0]}),
-        .y({1'b1,B[22:0]}),
+        .x({1'b1,a[22:0]}),
+        .y({1'b1,b[22:0]}),
         .z(temp2)
     );
     
-    Normalizer Normalizer_i(
+    normalizer normalizer_i(
         .mantisa_mul(temp2),
         .exponent_add(temp1),
         .sel(sel),
@@ -47,7 +47,7 @@ module mul_div(
         .exponent_simple(R[30:23])
     );
     
-    Rounding Rounding_i(
+    rounding rounding_i(
         .mul_normalize(temp3),
         .clk(clk),
         .arst(arst),
