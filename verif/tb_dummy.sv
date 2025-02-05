@@ -50,6 +50,7 @@ module tb;
             $display("y = %d", y);
             //#10;
             //$display("z = %d", z);
+            $finish;
         end
     end
     mul_div mul_div_i ( .a(x),
