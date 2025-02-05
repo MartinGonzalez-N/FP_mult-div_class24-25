@@ -12,17 +12,17 @@ module mul_div(
     wire [25:0] temp3;
     
     sign_logic sign_logic_i(
-        .sa(a[31]),
-        .sb(b[31]),
+        .s_a(a[31]),
+        .s_b(b[31]),
         .clk(clk),
         .arst(arst), 
         .en(en),
-        .sR(R[31])
+        .s_r(R[31])
     );
     
     exponent_logic exponent_logic_i(
-        .ea(a[30:23]), 
-        .eb(b[30:23]),
+        .e_a(a[30:23]), 
+        .e_b(b[30:23]),
         .clk(clk),
         .arst(arst),
         .en(en),
@@ -37,14 +37,14 @@ module mul_div(
     );
     
     normalizer normalizer_i(
-        .mantisa_mul(temp2),
+        .mantissa_mul(temp2),
         .exponent_add(temp1),
         .sel(sel),
         .clk(clk),
         .arst(arst),
         .en(en),
-        .mantisa_normalize(temp3),
-        .exponent_simple(R[30:23])
+        .mantissa_normalize(temp3),
+        .exponent_single(R[30:23])
     );
     
     rounding rounding_i(
@@ -52,7 +52,7 @@ module mul_div(
         .clk(clk),
         .arst(arst),
         .en(en),
-        .mul_simple(R[22:0])
+        .mul_single(R[22:0])
     );
        
 endmodule
