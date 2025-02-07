@@ -20,4 +20,4 @@
 ../rtl/normalizer.sv
 ../rtl/rounding.sv
 ../rtl/mul_div.sv
-../verif/tb_dummy.sv
+../verif/mul_tb.sv

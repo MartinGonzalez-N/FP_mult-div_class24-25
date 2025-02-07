@@ -1,44 +1,52 @@
-module mul_tb #(
-    );
+module mul_tb;
     
     bit clk;
-    mul_div_if #() I_F(clk);
+    mul_div_if #() i_f(clk);
     
     mul_div #() DUT (
-        .clk(I_F.clk), 
-        .arst(I_F.arst),          
-        .A(I_F.A),  
-        .B(I_F.B),
-        .sel(I_F.sel),
-        .en(I_F.enable),
-        .R(I_F.R),
-        .IO(I_F.IO), .DZ(I_F.DZ), .OF(I_F.OF), .UF(I_F.UF),
-        .I(I_F.I)
+        .clk(i_f.clk), 
+        .arst(i_f.arst),          
+        .a(i_f.a),  
+        .b(i_f.b),
+        .sel(i_f.sel),
+        .en(i_f.en),
+        .R(i_f.R),
+        .io_flag(i_f.io_flag), 
+        .dz_flag(i_f.dz_flag), 
+        .of_flag(i_f.of_flag), 
+        .uf_flag(i_f.uf_flag),
+        .i_flag(i_f.i_flag)
     );
+
+    initial begin
+        $shm_open("shm_db");
+        $shm_probe("ASMTR");
+    end
 
     always #10 clk = ~clk;
     
-    always @(posedge clk) begin
+    /* always @(posedge clk) begin
     
-    end
+    end */
     
     initial begin
-    I_F.test_full_random();
+    i_f.test_full_random();
+    $finish;
     end
 
 endmodule
 
 interface mul_div_if (input logic clk);
-    logic [31:0] A, B;
-    logic arst, enable, sel;
+    logic [31:0] a, b;
+    logic arst, en, sel;
     logic [31:0] R;
-    logic IO, DZ, OF, UF, I;
+    logic io_flag, dz_flag, of_flag, uf_flag, i_flag;
     
     initial begin
         sel = '0;
-        A = '0;
-        B = '0;
-        enable = '1;
+        a = '0;
+        b = '0;
+        en = '1;
         arst = 0;
     end
     
@@ -51,19 +59,19 @@ interface mul_div_if (input logic clk);
   endfunction
 
   function automatic a_random();
-  std::randomize(A);
+  std::randomize(a);
   endfunction
   
   function automatic a_greater_b_random();
-  std::randomize(A, B) with{A >= B;};
+  std::randomize(a, b) with{a >= b;};
   endfunction
   
   function automatic b_random();
-  std::randomize(B);
-  endfunction
+  std::randomize(b);
+  endfunction 
   
   function automatic b_greater_a_random();
-  std::randomize(A, B) with{B >= A;};
+  std::randomize(a, b) with{b >= a;};
   endfunction
   
   function automatic sel_random();
@@ -75,7 +83,7 @@ interface mul_div_if (input logic clk);
   endfunction
   
   function automatic enable_value(input logic value);
-  enable = value;
+  en = value;
   endfunction
   
   

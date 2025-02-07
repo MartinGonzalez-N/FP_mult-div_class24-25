@@ -1,5 +1,10 @@
-1737738570 /home/disdig/dd_C1_25/FP_mult-div_class24-25/mul/cascade/sum1b.sv
-1737738570 /home/disdig/dd_C1_25/FP_mult-div_class24-25/mul/cascade/mul1b.sv
-1737738570 /home/disdig/dd_C1_25/FP_mult-div_class24-25/mul/cascade/step.sv
-1738280125 /home/disdig/dd_C1_25/FP_mult-div_class24-25/mul/cascade/mul_cascode.sv
-1738280673 /home/disdig/dd_C1_25/FP_mult-div_class24-25/mul/cascade/tb.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/sum1b.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul1b.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/step.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_cascode.sv
+1738884968 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/sign_logic.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/exponent_logic.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/normalizer.sv
+1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/rounding.sv
+1738884982 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_div.sv
+1738961773 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv

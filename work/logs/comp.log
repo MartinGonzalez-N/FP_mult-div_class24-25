@@ -1,12 +1,16 @@
-xrun(64): 23.09-s001: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s001: Started on Jan 30, 2025 at 23:55:59 UTC
+TOOL:	xrun(64)	23.09-s001: Started on Feb 07, 2025 at 20:56:28 UTC
 xrun
 	-f list.f
-		../mul/cascade/sum1b.sv
-		../mul/cascade/mul1b.sv
-		../mul/cascade/step.sv
-		../mul/cascade/mul_cascode.sv
-		../mul/cascade/tb.sv
+		../rtl/sum1b.sv
+		../rtl/mul1b.sv
+		../rtl/step.sv
+		../rtl/mul_cascode.sv
+		../rtl/sign_logic.sv
+		../rtl/exponent_logic.sv
+		../rtl/normalizer.sv
+		../rtl/rounding.sv
+		../rtl/mul_div.sv
+		../verif/mul_tb.sv
 	-l ./logs/comp.log
 	+define+XCELIUM+
 	-access +rwc
@@ -239,6 +243,115 @@ DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
 xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
 DEFINE std       ./STD
 |
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+file: ../rtl/sum1b.sv
+	module worklib.sum1b:sv
+		errors: 0, warnings: 0
+file: ../rtl/mul1b.sv
+	module worklib.mul1b:sv
+		errors: 0, warnings: 0
+file: ../rtl/step.sv
+	module worklib.step:sv
+		errors: 0, warnings: 0
+file: ../rtl/mul_cascode.sv
+	module worklib.mul_cascode:sv
+		errors: 0, warnings: 0
+file: ../rtl/sign_logic.sv
+	module worklib.sign_logic:sv
+		errors: 0, warnings: 0
+file: ../rtl/exponent_logic.sv
+	module worklib.exponent_logic:sv
+		errors: 0, warnings: 0
+file: ../rtl/normalizer.sv
+	module worklib.normalizer:sv
+		errors: 0, warnings: 0
+file: ../rtl/rounding.sv
+	module worklib.rounding:sv
+		errors: 0, warnings: 0
+file: ../rtl/mul_div.sv
+	module worklib.mul_div:sv
+		errors: 0, warnings: 0
+file: ../verif/mul_tb.sv
+	module worklib.mul_tb:sv
+		errors: 0, warnings: 0
+  std::randomize(arst);
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,58|16): function called as a task without void'().
+  std::randomize(a);
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,62|16): function called as a task without void'().
+  std::randomize(a, b) with{a >= b;};
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,66|16): function called as a task without void'().
+  std::randomize(b);
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,70|16): function called as a task without void'().
+  std::randomize(a, b) with{b >= a;};
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,74|16): function called as a task without void'().
+  std::randomize(sel);
+                |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,78|16): function called as a task without void'().
+    a_random();
+           |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,95|11): function called as a task without void'().
+    b_random();
+           |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,96|11): function called as a task without void'().
+    a_greater_b_random();
+                     |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,102|21): function called as a task without void'().
+    b_greater_a_random();
+                     |
+xmvlog: *W,FUNTSK (../verif/mul_tb.sv,108|21): function called as a task without void'().
+	interface worklib.mul_div_if:sv
+		errors: 0, warnings: 10
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 15
+DEFINE std       ./STD
+|
 xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
 DEFINE synopsys  ./SYNOPSYS
 |
@@ -284,6 +397,264 @@ DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
 xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
 DEFINE std       ./STD
 |
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmelab: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		mul_tb
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[23].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[22].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[21].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[20].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[19].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[18].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[17].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[16].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[15].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[14].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[13].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[12].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[11].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[10].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[9].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[8].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[7].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[6].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[5].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[4].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[3].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[2].genblk1.h.mul1b_gen[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[1].genblk1.h.mul1b_gen[0]) .
+                         .Si(0),
+                             |
+xmelab: *W,CUVMPW (../rtl/mul_cascode.sv,40|29): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[0]) .
+                         .Sx(0),
+                             |
+xmelab: *W,CUVMPW (../rtl/mul_cascode.sv,41|29): port sizes differ in port connection(32/23) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[0]) .
+				mul1b n0 (.si(Sx[i]), .x(X[i]), .y(Y), .ci(0), .so(So[i]), .co(Cx[i]));
+				                                           |
+xmelab: *W,CUVMPW (../rtl/step.sv,17|47): port sizes differ in port connection(32/1) for the instance(mul_tb.DUT.mul_cascode_i.gen_step[0].genblk1.h.mul1b_gen[0]) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+DEFINE std       ./STD
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog_cg: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+		worklib.rounding:sv <0x07c31006>
+			streams:   1, words:   262
+		worklib.normalizer:sv <0x6b8b24fd>
+			streams:   6, words:  2624
+		worklib.sum1b:sv <0x5e50b3fa>
+			streams:   0, words:     0
+		worklib.mul1b:sv <0x70f96641>
+			streams:   0, words:     0
+		worklib.exponent_logic:sv <0x008062b1>
+			streams:   7, words:  2509
+		worklib.sign_logic:sv <0x1a3361e1>
+			streams:   3, words:  1068
+		worklib.mul_div:sv <0x487169e4>
+			streams:   0, words:     0
+		worklib.mul_tb:sv <0x095cec5a>
+			streams:  15, words:  4265
+		worklib.mul_div_if:sv <0x11ed0255>
+			streams:  13, words:  5743
+		worklib.mul_cascode:sv <0x6acd2fee>
+			streams:   1, words:   305
+		worklib.step:sv <0x39c85173>
+			streams:   1, words:   139
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:               1183      10
+		Interfaces:               1       1
+		Registers:               33      33
+		Scalar wires:          3497       -
+		Expanded wires:         150       6
+		Vectored wires:           6       -
+		Always blocks:            4       4
+		Initial blocks:           3       3
+		Cont. assignments:        8      16
+		Pseudo assignments:      37       -
+		Process Clocks:           3       1
+		Simulation timescale:   1ps
+	Writing initial simulation snapshot: worklib.mul_tb:sv
+DEFINE std       ./STD
+|
 xmsim: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
 DEFINE synopsys  ./SYNOPSYS
 |
@@ -327,31 +698,12 @@ xmsim: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): c
 DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
 |
 xmsim: *W,DLCPTH (/edatools/cdnc/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/edatools/cdnc/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
-Loading snapshot worklib.tb:sv .................... Done
+Loading snapshot worklib.mul_tb:sv .................... Done
+SVSEED default: 1
 xcelium> source /edatools/cdnc/XCELIUM2309/tools/xcelium/files/xmsimrc
 xcelium> run
 xmsim: *W,MTDNOCFG: MTD auto-configuration failed, default settings are in use.
-x =  292
-y =  641
-x =  521
-y =  611
-x =  781
-y =  397
-x =  101
-y =  530
-x =  769
-y =  269
-x =  374
-y =  317
-x = 1005
-y =  908
-x =  505
-y =  198
-x =  197
-y =  682
-x =  997
-y =  631
-Simulation interrupted at 286437040 NS + 0
-xcelium> ^C
+Simulation complete via $finish(1) at time 3990 NS + 1
+../verif/mul_tb.sv:34     $finish;
 xcelium> exit
-TOOL:	xrun(64)	23.09-s001: Exiting on Jan 30, 2025 at 23:56:19 UTC  (total: 00:00:20)
+TOOL:	xrun(64)	23.09-s001: Exiting on Feb 07, 2025 at 20:56:29 UTC  (total: 00:00:01)
