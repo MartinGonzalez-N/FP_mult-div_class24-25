@@ -7,4 +7,5 @@
 1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/normalizer.sv
 1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/rounding.sv
 1738884982 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_div.sv
-1738961773 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv
+1739214450 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv
+1739214490 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_div_if.sv

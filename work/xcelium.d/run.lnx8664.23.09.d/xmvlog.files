@@ -11,4 +11,5 @@
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/normalizer.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/rounding.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_div.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_div_if.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv

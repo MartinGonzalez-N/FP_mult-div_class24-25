@@ -6,5 +6,6 @@
 1738884968 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/sign_logic.sv
 1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/normalizer.sv
 1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/sum1b.sv
+1739214490 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_div_if.sv
 1738285314 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul1b.sv
-1738961773 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv
+1739214450 /home/joc/dd_C1_25/FP_mult-div_class24-25/verif/mul_tb.sv
