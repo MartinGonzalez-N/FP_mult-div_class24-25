@@ -1,7 +1,8 @@
-module mul_cascode #(parameter N = 10) (
+module mul #(parameter N = 23) (
     input [N-1:0] x,
     input [N-1:0] y,
     input clk,
+    input rst,
     output [2*N-1:0] z
 );
 
@@ -19,6 +20,7 @@ module mul_cascode #(parameter N = 10) (
             if (i == 0) begin
                 parallel_shift #(1, N) x_delay0 (
                     .clk(clk),
+                    .rst(rst),
                     .in(x),
                     .out(x_reg[0])
                 );
@@ -32,16 +34,19 @@ module mul_cascode #(parameter N = 10) (
                 );
                 shift #(1) Cx_delay0 (
                     .clk(clk),
+                    .rst(rst),
                     .in(cx[0]),
                     .out(cx_reg[0])
                 );
                 parallel_shift #(1, N-1) Sx_delay0 (
                     .clk(clk),
+                    .rst(rst),
                     .in(sx[0]),
                     .out(sx_reg[0])
                 );
                 shift #(N-1) S0_delay0 (
                     .clk(clk),
+                    .rst(rst),
                     .in(z_out[0]),
                     .out(z[0])
                 );
@@ -49,6 +54,7 @@ module mul_cascode #(parameter N = 10) (
             end else if (i == N-1) begin
                 shift #(N-1) y_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(y[N-1]),
                     .out(y_reg[N-2])
                 );
@@ -64,11 +70,13 @@ module mul_cascode #(parameter N = 10) (
             end else begin
                 parallel_shift #(1, N) x_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(x_reg[i-1]),
                     .out(x_reg[i])
                 );
                 shift #(i) y_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(y[i]),
                     .out(y_reg[i-1])
                 );
@@ -82,16 +90,19 @@ module mul_cascode #(parameter N = 10) (
                 );
                 shift #(1) Cx_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(cx[i]),
                     .out(cx_reg[i])
                 );
                 parallel_shift #(1, N-1) Sx_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(sx[i]),
                     .out(sx_reg[i])
                 );
                 shift #(N-1-i) S0_delay (
                     .clk(clk),
+                    .rst(rst),
                     .in(z_out[i]),
                     .out(z[i])
                 );

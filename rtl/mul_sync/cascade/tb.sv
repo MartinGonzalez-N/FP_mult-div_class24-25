@@ -3,6 +3,7 @@ module tb;
     parameter N = 23;
     bit [N-1:0] x;
     bit [N-1:0] y;
+    bit rst;
     bit clk;
     logic [2*N-1:0] z;
 
@@ -29,6 +30,7 @@ module tb;
             //x = 4'b1111;
             std::randomize(y);
             std::randomize(x);
+            //std::randomize(rst);
             //std::randomize(y);
             //$display("x = %d", x);
             //$display("y = %d", y);
@@ -38,5 +40,5 @@ module tb;
         end
         $finish;
     end
-    mul_cascode #(N) mul (.x(x), .y(y), .clk(clk), .z(z));
+    mul #(N) mul_i (.x(x), .y(y), .rst(rst), .clk(clk), .z(z));
 endmodule
