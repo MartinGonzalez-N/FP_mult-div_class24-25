@@ -1,2 +1,0 @@
-s1(07Feb2025:20:56:28):  xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv 
-s2(10Feb2025:20:28:57):  xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv 
