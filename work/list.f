@@ -21,4 +21,5 @@
 ../rtl/rounding.sv
 ../rtl/mul_div.sv
 ../verif/mul_div_if.sv
+../verif/assertsmodule.sv
 ../verif/mul_tb.sv

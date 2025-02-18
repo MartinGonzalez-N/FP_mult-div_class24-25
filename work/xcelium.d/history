@@ -2,5 +2,17 @@
 // File created by:  xrun
 // Do not modify this file
 
-s1::(07Feb2025:20:56:28):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
-s2::(10Feb2025:20:28:57):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s1::(18Feb2025:22:39:40):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s2::(18Feb2025:22:41:49):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s3::(18Feb2025:22:43:24):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s4::(18Feb2025:22:47:55):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s5::(18Feb2025:22:49:04):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s6::(18Feb2025:22:50:09):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s7::(18Feb2025:22:52:12):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s8::(18Feb2025:22:52:42):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s9::(18Feb2025:22:53:41):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s10::(18Feb2025:22:54:12):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s11::(18Feb2025:22:54:57):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s12::(18Feb2025:22:56:17):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s13::(18Feb2025:22:57:38):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )
+s14::(18Feb2025:22:58:49):( xrun -f list.f -l ./logs/comp.log +define+XCELIUM+ -access +rwc -timescale 1ns/1ps -sv )

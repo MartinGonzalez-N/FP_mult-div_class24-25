@@ -25,6 +25,7 @@ module mul_tb();
     
     bit clk;
     mul_div_if #() i_f(clk);
+    asserts_if #() i_a(clk);
     
     mul_div #() DUT (
         .clk(i_f.clk), 
@@ -40,6 +41,20 @@ module mul_tb();
         .uf_flag(i_f.uf_flag),
         .i_flag(i_f.i_flag)
     );
+    // ASSERTS MODULE CONECTION
+    bind  mul_div  assertsmodule  asserts(
+        .arst(arst), 
+        .a(a),
+        .b(b), 
+        .sel(sel), 
+        .en(en), 
+        .R(R),
+        .io_flag(io_flag), 
+        .dz_flag(dz_flag), 
+        .of_flag(of_flag), 
+        .uf_flag(uf_flag),
+        .i_flag(i_flag)
+    );
 
     initial begin
         $shm_open("shm_db");
@@ -53,7 +68,7 @@ module mul_tb();
     end */
     
     initial begin
-    i_f.test_full_random();
+    i_f.test_full_random(15);
     $finish;
     end
 
