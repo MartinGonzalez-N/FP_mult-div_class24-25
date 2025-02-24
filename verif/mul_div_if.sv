@@ -40,7 +40,7 @@ interface mul_div_if (input logic clk);
     b = {1'b0, temp[30:23] != 8'hFF ? temp[30:23] : 8'hFE, temp[22:0]};
   endfunction
   
-  function automatic randomize_normal_ab_greater_a();
+  function automatic randomize_normal_a_greater_b(); 
     bit [31:0] temp_a, temp_b;
     real real_a, real_b;
     do begin
@@ -53,7 +53,7 @@ interface mul_div_if (input logic clk);
     end while (real_a > real_b);
   endfunction
 
-  function automatic randomize_normal_ab_greater_b();
+  function automatic randomize_normal_b_greater_a(); 
     bit [31:0] temp_a, temp_b;
     real real_a, real_b;
     do begin
@@ -78,15 +78,16 @@ interface mul_div_if (input logic clk);
     $cast(b, r);
   endfunction
 
+  function automatic void set_sel_to(input int value);
+    sel = value;
+  endfunction
+
   function automatic sel_random();
   std::randomize(sel);
   endfunction
   
-  function automatic sel_value(input int value);
-  sel = value;
-  endfunction
   
-  function automatic enable_value(input int value);
+  function automatic set_enable_to(input int value);
   en = value;
   endfunction
   
@@ -96,20 +97,37 @@ interface mul_div_if (input logic clk);
   
   task automatic test_full_random(input int value);
     repeat (value)@(posedge clk)begin
-    a_random();
-    b_random();
+    sel_random();                                           // sel_random
+    randomize_normal_a();                                   // a_random
+    randomize_normal_b();                                   // b_random
     end
   endtask
   
   task automatic test_a_greater_than_b(input int value);
     repeat (value)@(posedge clk)begin
-    a_greater_b_random();
+    randomize_normal_a_greater_b(); 
     end
   endtask
   
   task automatic test_b_greater_than_a(input int value);
     repeat (value)@(posedge clk)begin
-    b_greater_a_random();
+    randomize_normal_b_greater_a(); 
+    end
+  endtask
+
+  task automatic test_mul_random(input int value);
+    repeat (value)@(posedge clk)begin
+    sel = 0;
+    randomize_normal_a(); 
+    randomize_normal_b(); 
+    end
+  endtask
+
+  task automatic test_div_random(input int value);
+    repeat (value)@(posedge clk)begin
+    sel = 1;
+    randomize_normal_a(); 
+    randomize_normal_b(); 
     end
   endtask
   

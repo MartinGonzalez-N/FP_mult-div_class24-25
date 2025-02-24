@@ -6,7 +6,7 @@
 list.f
 -l
 ./logs/comp.log
-+define+XCELIUM+
++define+TEST_MUL_RANDOM+
 -access
 +rwc
 -timescale

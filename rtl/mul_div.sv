@@ -30,7 +30,7 @@ module mul_div(
         .e(temp1)
     );
     
-    mul_cascode #(.N(24)) mul_cascode_i (
+    mul #(.N(24)) mul_cascode_i (
         .x({1'b1,a[22:0]}),
         .y({1'b1,b[22:0]}),
         .z(temp2)

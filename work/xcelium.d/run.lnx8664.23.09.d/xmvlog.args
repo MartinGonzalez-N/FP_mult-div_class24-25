@@ -5,10 +5,6 @@
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
 -RUNMODE
-../rtl/sum1b.sv
-../rtl/mul1b.sv
-../rtl/step.sv
-../rtl/mul_cascode.sv
 ../rtl/sign_logic.sv
 ../rtl/exponent_logic.sv
 ../rtl/normalizer.sv
@@ -18,7 +14,7 @@
 ../verif/assertsmodule.sv
 ../verif/mul_tb.sv
 -DEFINE
-XCELIUM
+TEST_MUL_RANDOM
 -sv
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib

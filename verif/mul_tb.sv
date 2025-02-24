@@ -25,7 +25,6 @@ module mul_tb();
     
     bit clk;
     mul_div_if #() i_f(clk);
-    asserts_if #() i_a(clk);
     
     mul_div #() DUT (
         .clk(i_f.clk), 
@@ -41,9 +40,11 @@ module mul_tb();
         .uf_flag(i_f.uf_flag),
         .i_flag(i_f.i_flag)
     );
+
     // ASSERTS MODULE CONECTION
     bind  mul_div  assertsmodule  asserts(
-        .arst(arst), 
+        .arst(arst),
+        .clk(clk),
         .a(a),
         .b(b), 
         .sel(sel), 
@@ -63,14 +64,62 @@ module mul_tb();
 
     always #10 clk = ~clk;
     
-    /* always @(posedge clk) begin
-    
-    end */
+
+
+    `ifdef TEST_FULL_RANDOM
     
     initial begin
-    i_f.test_full_random(15);
+    i_f.test_full_random(400);
     $finish;
     end
+
+    `endif
+
+    `ifdef TEST_A_GREATER_THAN_B
+    
+    initial begin
+    i_f.set_sel_to(0);
+    i_f.test_a_greater_than_b(200);
+    i_f.set_sel_to(1);
+    i_f.test_a_greater_than_b(200);
+    $finish;
+    end
+
+    `endif
+
+    `ifdef TEST_B_GREATER_THAN_A
+    
+    initial begin
+    i_f.set_sel_to(0);
+    i_f.test_b_greater_than_a(200);
+    i_f.set_sel_to(1);
+    i_f.test_b_greater_than_a(200);
+    $finish;
+    end
+
+    `endif
+
+    `ifdef TEST_MUL_RANDOM
+
+    initial begin
+    i_f.set_sel_to(0);
+    i_f.test_mul_random(400);
+    $finish;
+    end
+
+    `endif
+
+    `ifdef TEST_DIV_RANDOM
+
+    initial begin
+    i_f.set_sel_to(1);
+    i_f.test_div_random(400);
+    $finish;
+    end
+
+    `endif
+
+
 
 endmodule
 
