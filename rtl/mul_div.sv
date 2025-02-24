@@ -8,9 +8,9 @@ module mul_div(
     );
     
     wire [9:0] temp1;
-    wire [47:0] temp2;
-    wire [25:0] temp3;
-    
+    wire [47:0] temp2, temp3 , temp4;
+    wire [25:0] temp5;
+
     sign_logic sign_logic_i(
         .s_a(a[31]),
         .s_b(b[31]),
@@ -30,25 +30,38 @@ module mul_div(
         .e(temp1)
     );
     
-    mul #(.N(24)) mul_cascode_i (
+    mul #(.N(24)) mul_i (
         .x({1'b1,a[22:0]}),
         .y({1'b1,b[22:0]}),
+        .clk(clk),
+        .rst(arst),
         .z(temp2)
     );
-    
+
+    divisor #(.WIDTH(24)) divisor_i(
+        .clk(clk),
+        .arst(arst),
+        .a({1'b1,a[22:0]}),
+        .b({1'b1,b[22:0]}), 
+        .div_by_zero(dz_flag), 
+        .z(temp3)
+    );
+
+    assign temp4 = sel ? temp2 : temp3;
+
     normalizer normalizer_i(
-        .mantissa_mul(temp2),
+        .mantissa_mul(temp4),
         .exponent_add(temp1),
         .sel(sel),
         .clk(clk),
         .arst(arst),
         .en(en),
-        .mantissa_normalize(temp3),
+        .mantissa_normalize(temp5),
         .exponent_single(R[30:23])
     );
     
     rounding rounding_i(
-        .mul_normalize(temp3),
+        .mul_normalize(temp5),
         .clk(clk),
         .arst(arst),
         .en(en),

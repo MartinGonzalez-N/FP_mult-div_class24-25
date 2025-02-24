@@ -9,7 +9,7 @@ module divisor #(parameter WIDTH = 24)
     output logic div_by_zero,               
     output logic [WIDTH-1:0] q, 
     output logic [WIDTH-1:0] f,
-    output logic [WIDTH+5:0] z                 
+    output logic [WIDTH+5:0] z
 );
 
     logic [WIDTH-1:0] part_r;
