@@ -8,10 +8,12 @@ interface mul_div_if (input logic clk);
     logic io_flag, dz_flag, of_flag, uf_flag, i_flag;
     
     initial begin
+        arst = '1;
         sel = '0;
         a = '0;
         b = '0;
         en = '1;
+        #77;
         arst = 0;
     end
     
@@ -78,6 +80,15 @@ interface mul_div_if (input logic clk);
     $cast(b, r);
   endfunction
 
+  function automatic void set_a_to_infinite();
+    a = 32'h7F800000;
+  endfunction
+
+  function automatic void set_b_to_infinite();
+    b = 32'h7F800000;
+  endfunction
+
+
   function automatic void set_sel_to(input int value);
     sel = value;
   endfunction
@@ -131,4 +142,96 @@ interface mul_div_if (input logic clk);
     end
   endtask
   
+  task automatic test_mul_zero(input int value, input bit randomize_a, input bit randomize_b);
+    repeat (value)@(posedge clk) begin
+        if (randomize_a) begin
+            randomize_normal_a();
+        end else begin
+            set_a_to(0);
+        end
+        if (randomize_b) begin
+            randomize_normal_b();
+        end else begin
+            set_b_to(0);
+        end
+    end
+  endtask
+
+  task automatic test_div_zero(input int value, input bit randomize_a, input bit randomize_b);
+    repeat (value)@(posedge clk) begin
+        if (randomize_a) begin
+            randomize_normal_a();
+        end else begin
+            set_a_to(0);
+        end
+        if (randomize_b) begin
+            randomize_normal_b();
+        end else begin
+            set_b_to(0);
+        end
+    end
+  endtask
+
+task automatic test_direct(input int a_value, input int b_value, input bit sel_value);
+    begin   
+        sel = sel_value;
+        set_a_to(a_value);
+        set_b_to(b_value);
+    end
+endtask
+
+  task automatic test_infinity(input int value, input int a_b_both);
+    repeat (value)@(posedge clk) begin
+        if (a_b_both == 2) begin
+            set_a_to(32'h7F800000);
+            set_b_to(32'h7F800000);
+            randomize_normal_b();
+        end else if (a_b_both == 1) begin
+            set_a_to(32'h7F800000);
+            randomize_normal_b();
+        end else begin
+            set_b_to(32'h7F800000);
+            randomize_normal_a();
+        end
+    end
+    endtask
+
+  task automatic test_nan(input int value, input int a_b_both);
+    repeat (value)@(posedge clk) begin
+        if (a_b_both == 2) begin
+            set_a_to(32'h7FC00000);
+            set_b_to(32'h7FC00000);
+        end else if (a_b_both == 1) begin
+            set_a_to(32'h7FC00000);
+            randomize_normal_b();
+        end else begin
+            set_b_to(32'h7FC00000);
+            randomize_normal_a();
+        end
+    end
+  endtask
+
+  task automatic test_reset_random(input int value);
+    repeat (value)@(posedge clk)begin
+    randomize_normal_a();
+    randomize_normal_b();
+    repeat(10)@(posedge clk)begin
+      randomize_arst();
+      end
+    end
+  endtask
+
+  task automatic test_reset_timed(input int value);
+    repeat (value)@(posedge clk)begin
+    randomize_normal_a();
+    randomize_normal_b();
+    repeat(10)@(posedge clk);
+    repeat(2)@(posedge clk)begin
+      set_arst_to(1);
+    end
+    set_arst_to(0);
+    end
+  endtask
+
+
 endinterface

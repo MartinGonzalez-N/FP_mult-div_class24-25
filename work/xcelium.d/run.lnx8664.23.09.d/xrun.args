@@ -6,7 +6,7 @@
 list.f
 -l
 ./logs/comp.log
-+define+TEST_MUL_RANDOM+
++define+TEST_FULL_RANDOM+
 -access
 +rwc
 -timescale

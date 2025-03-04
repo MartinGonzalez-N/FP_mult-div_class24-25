@@ -2,6 +2,14 @@
 // File created by:  xrun
 // Do not modify this file
 //
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/sum1b.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/mul1b.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/step.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/flipflop.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/shift.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/parallel_shift.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/mul_sync/cascade/mul.sv
+/home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/divisor.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/sign_logic.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/exponent_logic.sv
 /home/joc/dd_C1_25/FP_mult-div_class24-25/rtl/normalizer.sv

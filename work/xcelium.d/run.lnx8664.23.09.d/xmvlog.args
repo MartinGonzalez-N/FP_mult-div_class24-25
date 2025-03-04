@@ -5,6 +5,14 @@
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
 -RUNMODE
+../rtl/mul_sync/cascade/sum1b.sv
+../rtl/mul_sync/cascade/mul1b.sv
+../rtl/mul_sync/cascade/step.sv
+../rtl/mul_sync/cascade/flipflop.sv
+../rtl/mul_sync/cascade/shift.sv
+../rtl/mul_sync/cascade/parallel_shift.sv
+../rtl/mul_sync/cascade/mul.sv
+../rtl/divisor.sv
 ../rtl/sign_logic.sv
 ../rtl/exponent_logic.sv
 ../rtl/normalizer.sv
@@ -14,7 +22,7 @@
 ../verif/assertsmodule.sv
 ../verif/mul_tb.sv
 -DEFINE
-TEST_MUL_RANDOM
+TEST_FULL_RANDOM
 -sv
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib

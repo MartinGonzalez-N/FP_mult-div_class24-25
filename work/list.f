@@ -4,13 +4,13 @@
 #/home/disdig/dd_C1_25/FP_mult-div_class24-25/rtl/divisor.sv
 #/home/disdig/dd_C1_25/FP_mult-div_class24-25/rtl/tb_divisor.sv
 
-#../rtl/mul_sync/cascade/sum1b.sv
-#../rtl/mul_sync/cascade/mul1b.sv
-#../rtl/mul_sync/cascade/step.sv
-#../rtl/mul_sync/cascade/flipflop.sv
-#../rtl/mul_sync/cascade/shift.sv
-#../rtl/mul_sync/cascade/parallel_shift.sv
-#../rtl/mul_sync/cascade/mul.sv
+../rtl/mul_sync/cascade/sum1b.sv
+../rtl/mul_sync/cascade/mul1b.sv
+../rtl/mul_sync/cascade/step.sv
+../rtl/mul_sync/cascade/flipflop.sv
+../rtl/mul_sync/cascade/shift.sv
+../rtl/mul_sync/cascade/parallel_shift.sv
+../rtl/mul_sync/cascade/mul.sv
 #../rtl/mul_sync/cascade/tb.sv
 
 #../rtl/mul/cascade/sum1b.sv
@@ -23,7 +23,8 @@
 #../rtl/mul1b.sv
 #../rtl/step.sv
 #../rtl/mul_cascode.sv
-#../rtl/divisor.sv
+../rtl/divisor.sv
+
 
 
 ../rtl/sign_logic.sv
