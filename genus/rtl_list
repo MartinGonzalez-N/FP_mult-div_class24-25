@@ -1,0 +1,15 @@
+../rtl/mul_sync/cascade/sum1b.sv
+../rtl/mul_sync/cascade/mul1b.sv
+../rtl/mul_sync/cascade/step.sv
+../rtl/mul_sync/cascade/flipflop.sv
+../rtl/mul_sync/cascade/shift.sv
+../rtl/mul_sync/cascade/parallel_shift.sv
+../rtl/mul_sync/cascade/mul.sv
+../rtl/divisor.sv
+../rtl/sign_logic.sv
+../rtl/exponent_logic.sv
+../rtl/normalizer.sv
+../rtl/rounding.sv
+../rtl/mul_div.sv
+
+
