@@ -47,7 +47,7 @@ module mul_div(
         .z(temp3)
     );
 
-    assign temp4 = sel ? temp2 : temp3;
+    assign temp4 = sel ? temp3 : temp2;
 
     normalizer normalizer_i(
         .mantissa_mul(temp4),
