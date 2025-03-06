@@ -12,7 +12,7 @@ module sign_logic(
     output s_r //Output sign
     );
 	
-    reg buffer1, buffer2, buffer3;// buffers to synchronize the output signal
+    reg [22:0] buffer;// buffers to synchronize the output signal
     wire s;
     
     assign s = s_a^s_b;//Sign of A XOR Sign of B
@@ -20,12 +20,10 @@ module sign_logic(
 	// buffers to synchronize the output signal
     always@(posedge clk or posedge arst) begin
         if (arst) begin
-            buffer1 <= 1'b0;
-            buffer2 <= 1'b0;
+            buffer <= 23'b0;
         end else if (en) begin
-            buffer1 <= s;
-            buffer2 <= buffer1;
+            buffer <= {s,buffer[22:1]};
         end
     end
-    assign s_r = buffer2;
+    assign s_r = buffer[0];
 endmodule
