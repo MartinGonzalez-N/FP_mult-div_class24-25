@@ -15,24 +15,24 @@ module normalizer(
     );
     
     wire [10:0] temp1;
-    reg [47:0] buffer1, buffer2;
+    //reg [47:0] buffer1, buffer2;
     reg [47:0] selected_mantissa; // selected mantissa depending on sel signal
 
     // MUX to select between multiplication and division mantissas
     always @(*) begin
         if (sel) begin
-            selected_mantissa = mantissa_mul;
+            selected_mantissa <= mantissa_div;
         end else begin
-            selected_mantissa = mantissa_div;
+            selected_mantissa <= mantissa_mul;
         end
     end
 
-    assign mantissa_normalize = (buffer2[47]) ? buffer2[46:21] : buffer2[45:20]; // MUX that normalizes the mantissa
-    assign temp1 = (buffer2[47]) ? exponent_add + 1'b1 : exponent_add; // MUX that adjusts the exponent
+    assign mantissa_normalize = (selected_mantissa[47]) ? selected_mantissa[46:21] : selected_mantissa[45:20]; // MUX that normalizes the mantissa
+    assign temp1 = (selected_mantissa[47]) ? exponent_add + 1'b1 : exponent_add; // MUX that adjusts the exponent
     assign exponent_single = temp1[7:0]; // Adjusts the exponent to the IEEE 754 standard format
 	
     // Buffers to synchronize the output signal
-    always@(posedge clk or posedge arst) begin
+    /*always@(posedge clk or posedge arst) begin
         if (arst) begin
             buffer1 <= 0;
             buffer2 <= 0;
@@ -40,6 +40,6 @@ module normalizer(
             buffer1 <= selected_mantissa;
             buffer2 <= buffer1;
         end
-    end
+    end*/
     
 endmodule
