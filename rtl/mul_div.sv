@@ -3,7 +3,9 @@
 module mul_div(
     input [31:0] a, b,
     input clk, arst, en, sel,
+    output done_div,
     output [31:0] R,
+    output [23:0] q_div, f_div,
     output io_flag, dz_flag, of_flag, uf_flag, i_flag
     );
     
@@ -38,19 +40,22 @@ module mul_div(
         .z(temp2)
     );
 
-    divisor #(.WIDTH(24)) divisor_i(
+    divisor_clk #(24, 48) divisor_clk_i(
         .clk(clk),
         .arst(arst),
+        .start(clk),
         .a({1'b1,a[22:0]}),
-        .b({1'b1,b[22:0]}), 
-        .div_by_zero(dz_flag), 
+        .b({1'b1,b[22:0]}),
+        .done(done_div),
+        .div_by_zero(dz_flag),
+        .q(q_div),
+        .f(f_div),
         .z(temp3)
     );
 
-    assign temp4 = sel ? temp3 : temp2;
-
     normalizer normalizer_i(
-        .mantissa_mul(temp4),
+        .mantissa_mul(temp2),
+        .mantissa_div(temp3),
         .exponent_add(temp1),
         .sel(sel),
         .clk(clk),
