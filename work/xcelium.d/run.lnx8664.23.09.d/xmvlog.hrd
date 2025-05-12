@@ -3,5 +3,5 @@
 // Do not modify this file
 //
 -DEFINE
-TEST_FULL_RANDOM
+TEST_MUL_RANDOM
 -sv

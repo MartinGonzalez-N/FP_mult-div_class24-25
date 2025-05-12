@@ -1,74 +1,76 @@
-2025-02-18 22:12:27.942269 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.942424 (48320) main____ INFO    Jasper version info
-2025-02-18 22:12:27.942462 (48320) main____ INFO      tool      : Jasper 2023.09
-2025-02-18 22:12:27.942470 (48320) main____ INFO      version   : 2023.09 FCS 64 bits
-2025-02-18 22:12:27.942476 (48320) main____ INFO      build date: 2023.09.27 19:40:18 UTC
-2025-02-18 22:12:27.942481 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.942486 (48320) main____ INFO    Runtime info:
-2025-02-18 22:12:27.942492 (48320) main____ INFO      platform  : Linux 4.19.0-20-amd64 x86_64
-2025-02-18 22:12:27.942500 (48320) main____ INFO      hostname  : joc047
-2025-02-18 22:12:27.942505 (48320) main____ INFO      pid       : 48320
-2025-02-18 22:12:27.942511 (48320) main____ INFO      arguments : '-style' 'windows' '-superlint' 'superlint.tcl'
-2025-02-18 22:12:27.942517 (48320) main____ INFO      locale    : ANSI_X3.4-1968
-2025-02-18 22:12:27.942522 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.942526 (48320) main____ INFO    System resource limits info:
-2025-02-18 22:12:27.942532 (48320) main____ INFO      virtual memory: unlimited
-2025-02-18 22:12:27.942537 (48320) main____ INFO      cpu time      : unlimited
-2025-02-18 22:12:27.942546 (48320) main____ INFO      processes     : 4096
-2025-02-18 22:12:27.942556 (48320) main____ INFO      stack size    : 8388608 B
-2025-02-18 22:12:27.942562 (48320) main____ INFO      core file size: 0 B
-2025-02-18 22:12:27.942568 (48320) main____ INFO      open files    : 1048576
-2025-02-18 22:12:27.942573 (48320) main____ INFO      file size     : unlimited
-2025-02-18 22:12:27.942578 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.942582 (48320) main____ INFO    Memory statistics:
-2025-02-18 22:12:27.942588 (48320) main____ INFO      total physical memory  : 8388608 kB
-2025-02-18 22:12:27.942592 (48320) main____ INFO      free physical memory   : 6411432 kB
-2025-02-18 22:12:27.942597 (48320) main____ INFO      committed address space: 15784624 kB
-2025-02-18 22:12:27.942602 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.943454 (48320) main____ INFO    Important environment variables:
-2025-02-18 22:12:27.943472 (48320) main____ INFO      CDS_AUTO_32BIT     : 'NONE'
-2025-02-18 22:12:27.943479 (48320) main____ INFO      CDS_AUTO_64BIT     : 'ALL'
-2025-02-18 22:12:27.943487 (48320) main____ INFO      CDS_GENUS201       : '/edatools/cdnc/GENUS211'
-2025-02-18 22:12:27.943494 (48320) main____ INFO      CDS_INNOVUS191     : '/edatools/cdnc/INNOVUS211'
-2025-02-18 22:12:27.943501 (48320) main____ INFO      CDS_INST           : '/edatools/cdnc'
-2025-02-18 22:12:27.943507 (48320) main____ INFO      CDS_LIC_FILE       : '744@10.0.7.51'
-2025-02-18 22:12:27.943514 (48320) main____ INFO      DISPLAY            : '10.0.7.165:7.0'
-2025-02-18 22:12:27.943520 (48320) main____ INFO      JASPER_INSTALL_DIR : '/edatools/cdnc/JASPER2309'
-2025-02-18 22:12:27.943527 (48320) main____ INFO      JASPER_KERNEL_CHECK: '1'
-2025-02-18 22:12:27.943533 (48320) main____ INFO      JASPER_OS_CHECK    : '1'
-2025-02-18 22:12:27.943540 (48320) main____ INFO      LANG               : 'C'
-2025-02-18 22:12:27.943547 (48320) main____ INFO      LC_HOME            : '/edatools/snps/installs/lc/R-2020.09'
-2025-02-18 22:12:27.943553 (48320) main____ INFO      LM_LICENSE_FILE    : '744@10.0.7.51'
-2025-02-18 22:12:27.943558 (48320) main____ INFO    ----------------------------------------
-2025-02-18 22:12:27.944407 (48320) lic_core INFO    Initializing license system ...
-2025-02-18 22:12:27.948006 (48320) lic_core INFO    ... license system initialized.
-2025-02-18 22:12:27.949608 (48320) lic__man INFO    Claim 'main' for <ui>.
-2025-02-18 22:12:27.949641 (48320) lic_core INFO    (1) checking out 'jasper_interactive' ...
-2025-02-18 22:12:28.012959 (48320) lic_core INFO    ... (1) checkout succeeded
-2025-02-18 22:12:28.013011 (48320) lic__man INFO    Claim 'superlint' for <ui>.
-2025-02-18 22:12:28.013033 (48320) lic_core INFO    (2) checking out 'jasper_afl' ...
-2025-02-18 22:12:28.017797 (48320) lic_core INFO    ... (2) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
-2025-02-18 22:12:28.017857 (48320) lic_core INFO    (3) checking out 'jasper_dao' ...
-2025-02-18 22:12:28.027650 (48320) lic_core INFO    ... (3) checkout succeeded
-2025-02-18 22:12:28.028040 (48320) main____ INFO    Tool inactivity delay is 480000 ms.
-2025-02-18 22:12:28.640306 (48320) lic__man INFO    Claim 'superlint' for <ui>.
-2025-02-18 22:12:29.071323 (48320) lic__man INFO    Unclaim 'superlint' for <ui>.
-2025-02-18 22:12:29.071371 (48320) lic__man INFO    Claim 'superlint' for <ui>.
-2025-02-18 22:12:29.075309 (48320) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
-2025-02-18 22:12:29.077392 (48320) session_ INFO    Analysis session with session id 'session_0' started (pid: 48352)
-2025-02-18 22:12:29.957004 (48320) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:34416)
-2025-02-18 22:12:30.460566 (48320) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
-2025-02-18 22:12:30.460965 (48320) lic__man INFO    Unclaim everything for 'session_0'.
-2025-02-18 22:12:31.805709 (48320) lic__man INFO    Unclaim everything for 'session_0'.
-2025-02-18 22:12:31.909461 (48320) lic__man INFO    Claim 'superlint' for 'session_0'.
-2025-02-18 22:12:34.207853 (48320) lic__man INFO    Claim 'superlint' for 'session_0'.
-2025-02-18 22:12:34.207896 (48320) lic__man INFO    Claim 'superlint' for 'session_0/prove-0'.
-2025-02-18 22:12:35.403547 (48320) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
-2025-02-18 22:12:46.069910 (48320) lic__man INFO    Claim 'superlint' for 'session_0'.
-2025-02-18 22:12:46.069991 (48320) lic__man INFO    Claim 'superlint' for 'session_0/prove-1'.
-2025-02-18 22:12:46.967772 (48320) lic__man INFO    Unclaim everything for 'session_0/prove-1'.
-2025-02-18 22:12:57.556934 (48320) main____ INFO    About to exit: requested from GUI
-2025-02-18 22:12:57.648013 (48320) session_ INFO    Analysis session 'session_0' disconnected.
-2025-02-18 22:12:57.674125 (48320) lic_core INFO    (1) checkin jasper_interactive
-2025-02-18 22:12:57.676400 (48320) lic_core INFO    (3) checkin jasper_dao
-2025-02-18 22:12:57.677749 (48320) main____ INFO    Exiting with status 0.
+2025-05-08 21:36:35.819764 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.819859 (34021) main____ INFO    Jasper version info
+2025-05-08 21:36:35.819871 (34021) main____ INFO      tool      : Jasper 2023.09
+2025-05-08 21:36:35.819882 (34021) main____ INFO      version   : 2023.09 FCS 64 bits
+2025-05-08 21:36:35.819890 (34021) main____ INFO      build date: 2023.09.27 19:40:18 UTC
+2025-05-08 21:36:35.819898 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.819904 (34021) main____ INFO    Runtime info:
+2025-05-08 21:36:35.819913 (34021) main____ INFO      platform  : Linux 4.19.0-20-amd64 x86_64
+2025-05-08 21:36:35.819925 (34021) main____ INFO      hostname  : joc044
+2025-05-08 21:36:35.819933 (34021) main____ INFO      pid       : 34021
+2025-05-08 21:36:35.819941 (34021) main____ INFO      arguments : '-style' 'windows' 'superlint.tcl'
+2025-05-08 21:36:35.819950 (34021) main____ INFO      locale    : ANSI_X3.4-1968
+2025-05-08 21:36:35.819957 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.819963 (34021) main____ INFO    System resource limits info:
+2025-05-08 21:36:35.819971 (34021) main____ INFO      virtual memory: unlimited
+2025-05-08 21:36:35.819979 (34021) main____ INFO      cpu time      : unlimited
+2025-05-08 21:36:35.819990 (34021) main____ INFO      processes     : 4096
+2025-05-08 21:36:35.820004 (34021) main____ INFO      stack size    : 8388608 B
+2025-05-08 21:36:35.820013 (34021) main____ INFO      core file size: 0 B
+2025-05-08 21:36:35.820021 (34021) main____ INFO      open files    : 1024
+2025-05-08 21:36:35.820029 (34021) main____ INFO      file size     : unlimited
+2025-05-08 21:36:35.820036 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.820043 (34021) main____ INFO    Memory statistics:
+2025-05-08 21:36:35.820050 (34021) main____ INFO      total physical memory  : 8388608 kB
+2025-05-08 21:36:35.820057 (34021) main____ INFO      free physical memory   : 6905876 kB
+2025-05-08 21:36:35.820064 (34021) main____ INFO      committed address space: 11334336 kB
+2025-05-08 21:36:35.820071 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.821229 (34021) main____ INFO    Important environment variables:
+2025-05-08 21:36:35.821242 (34021) main____ INFO      CDS_AUTO_32BIT     : 'NONE'
+2025-05-08 21:36:35.821248 (34021) main____ INFO      CDS_AUTO_64BIT     : 'ALL'
+2025-05-08 21:36:35.821255 (34021) main____ INFO      CDS_CONFRML222     : '/opt/edatools/cdnc/CONFRML222'
+2025-05-08 21:36:35.821261 (34021) main____ INFO      CDS_DIR            : '/opt/edatools/cdnc/IC231/share/cdssetup/cds.lib'
+2025-05-08 21:36:35.821271 (34021) main____ INFO      CDS_GENUS211       : '/edatools/cdnc/GENUS211'
+2025-05-08 21:36:35.821277 (34021) main____ INFO      CDS_IC             : '/opt/edatools/cdnc/IC231'
+2025-05-08 21:36:35.821284 (34021) main____ INFO      CDS_INNOVUS191     : '/edatools/cdnc/INNOVUS211'
+2025-05-08 21:36:35.821290 (34021) main____ INFO      CDS_INNOVUS211     : '/opt/edatools/cdnc/INNOVUS211'
+2025-05-08 21:36:35.821296 (34021) main____ INFO      CDS_INST           : '/edatools/cdnc'
+2025-05-08 21:36:35.821302 (34021) main____ INFO      CDS_LIC_FILE       : '744@10.0.7.51'
+2025-05-08 21:36:35.821308 (34021) main____ INFO      CDS_MMSIM          : '/opt/edatools/cdnc/SPECTRE211'
+2025-05-08 21:36:35.821315 (34021) main____ INFO      CDS_MODUS221       : '/opt/edatools/cdnc/MODUS221'
+2025-05-08 21:36:35.821321 (34021) main____ INFO      CDS_Netlisting_Mode: 'Analog'
+2025-05-08 21:36:35.821326 (34021) main____ INFO      CDS_PVS222         : ''
+2025-05-08 21:36:35.821332 (34021) main____ INFO      CDS_ROOT           : '/opt/edatools/cdnc/IC231'
+2025-05-08 21:36:35.821338 (34021) main____ INFO      CDS_SSV221         : '/opt/edatools/cdnc/SSV221'
+2025-05-08 21:36:35.821344 (34021) main____ INFO      DISPLAY            : '10.0.7.203:7.0'
+2025-05-08 21:36:35.821350 (34021) main____ INFO      JASPER_INSTALL_DIR : '/edatools/cdnc/JASPER2309'
+2025-05-08 21:36:35.821361 (34021) main____ INFO      JASPER_KERNEL_CHECK: '1'
+2025-05-08 21:36:35.821367 (34021) main____ INFO      JASPER_OS_CHECK    : '1'
+2025-05-08 21:36:35.821373 (34021) main____ INFO      LANG               : 'C'
+2025-05-08 21:36:35.821379 (34021) main____ INFO      LC_HOME            : '/edatools/snps/installs/lc/R-2020.09'
+2025-05-08 21:36:35.821385 (34021) main____ INFO      LM_LICENSE_FILE    : '744@10.0.7.51'
+2025-05-08 21:36:35.821389 (34021) main____ INFO    ----------------------------------------
+2025-05-08 21:36:35.823191 (34021) lic_core INFO    Initializing license system ...
+2025-05-08 21:36:35.827803 (34021) lic_core INFO    ... license system initialized.
+2025-05-08 21:36:35.839470 (34021) lic__man INFO    Claim 'main' for <ui>.
+2025-05-08 21:36:35.839511 (34021) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2025-05-08 21:36:35.919748 (34021) lic_core INFO    ... (1) checkout succeeded
+2025-05-08 21:36:35.919803 (34021) lic__man INFO    Claim 'fpv' for <ui>.
+2025-05-08 21:36:35.919823 (34021) lic_core INFO    (2) checking out 'jasper_fpv' ...
+2025-05-08 21:36:35.924737 (34021) lic_core INFO    ... (2) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
+2025-05-08 21:36:35.924784 (34021) lic_core INFO    (3) checking out 'jasper_fao' ...
+2025-05-08 21:36:35.934766 (34021) lic_core INFO    ... (3) checkout succeeded
+2025-05-08 21:36:35.935094 (34021) main____ INFO    Tool inactivity delay is 480000 ms.
+2025-05-08 21:36:36.641388 (34021) lic__man INFO    Claim 'fpv' for <ui>.
+2025-05-08 21:36:36.894009 (34021) lic__man INFO    Unclaim 'fpv' for <ui>.
+2025-05-08 21:36:36.894051 (34021) lic__man INFO    Claim 'fpv' for <ui>.
+2025-05-08 21:36:36.899328 (34021) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
+2025-05-08 21:36:36.902296 (34021) session_ INFO    Analysis session with session id 'session_0' started (pid: 34043)
+2025-05-08 21:36:42.777568 (34021) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:38160)
+2025-05-08 21:36:43.162285 (34021) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
+2025-05-08 21:36:43.162606 (34021) lic__man INFO    Unclaim everything for 'session_0'.
+2025-05-08 21:36:58.512127 (34021) main____ INFO    About to exit: requested from GUI
+2025-05-08 21:36:58.597514 (34021) session_ INFO    Analysis session 'session_0' disconnected.
+2025-05-08 21:36:58.602490 (34021) lic_core INFO    (1) checkin jasper_interactive
+2025-05-08 21:36:58.603484 (34021) lic_core INFO    (3) checkin jasper_fao
+2025-05-08 21:36:58.604657 (34021) main____ INFO    Exiting with status 0.

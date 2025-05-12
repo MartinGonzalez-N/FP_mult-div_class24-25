@@ -1,6 +1,7 @@
 
 ################## DON'T ERASE COMMENTS PLEASE ######################
 
+
 #/home/disdig/dd_C1_25/FP_mult-div_class24-25/rtl/divisor.sv
 #/home/disdig/dd_C1_25/FP_mult-div_class24-25/rtl/tb_divisor.sv
 
@@ -26,12 +27,12 @@
 ../rtl/divisor.sv
 
 
-
 ../rtl/sign_logic.sv
 ../rtl/exponent_logic.sv
 ../rtl/normalizer.sv
 ../rtl/rounding.sv
 ../rtl/mul_div.sv
+
 ../verif/mul_div_if.sv
 ../verif/assertsmodule.sv
 ../verif/mul_tb.sv

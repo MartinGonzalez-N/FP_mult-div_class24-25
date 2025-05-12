@@ -22,7 +22,7 @@
 ../verif/assertsmodule.sv
 ../verif/mul_tb.sv
 -DEFINE
-TEST_FULL_RANDOM
+TEST_MUL_RANDOM
 -sv
 -CDSLIB
 ./xcelium.d/run.lnx8664.23.09.d/cdsrun.lib

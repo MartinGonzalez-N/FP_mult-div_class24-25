@@ -2,12 +2,16 @@
 // File created by:  xrun
 // Do not modify this file
 //
-+define+TEST_FULL_RANDOM+
++define+TEST_MUL_RANDOM+
 -MESSAGES
+-svseed
+num_seed
+-sndynseed
+num_seed
 +EMGRLOG
 ./logs/comp.log
 -XLSTIME
-1741129132
+1746739892
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
@@ -21,4 +25,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	23.09-s001"
 -XLNAME
-./xcelium.d/run.lnx8664.23.09.d/joc044_c7151747-7bf8-40e0-a8ae-dd6ae82c01cb
+./xcelium.d/run.lnx8664.23.09.d/joc044_a31f03dd-bbbf-40d9-a776-94a648eae74f

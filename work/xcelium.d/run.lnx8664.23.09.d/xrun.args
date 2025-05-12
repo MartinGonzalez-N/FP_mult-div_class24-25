@@ -6,9 +6,11 @@
 list.f
 -l
 ./logs/comp.log
-+define+TEST_FULL_RANDOM+
++define+TEST_MUL_RANDOM+
 -access
 +rwc
+-seed
+num_seed
 -timescale
 1ns/1ps
 -sv

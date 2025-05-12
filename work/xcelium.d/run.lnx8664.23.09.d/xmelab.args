@@ -2,7 +2,7 @@
 // File created by:  xrun
 // Do not modify this file
 //
-+define+TEST_FULL_RANDOM+
++define+TEST_MUL_RANDOM+
 -ACCESS
 +rwc
 -timescale

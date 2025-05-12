@@ -17,7 +17,9 @@ interface mul_div_if (input logic clk);
         arst = 0;
     end
     
-
+  parameter [31:0] INF = 32'h7F800000;
+  parameter [31:0] ZERO = 32'h00000000;
+  parameter [31:0] ONE = 32'h3F800000;
 
 
 //////////////////////////////////////////// BFM //////////////////////////////////////////////
@@ -102,6 +104,17 @@ interface mul_div_if (input logic clk);
   en = value;
   endfunction
   
+  function automatic randomize_nan_a();
+        bit [31:0] temp;
+        std::randomize(temp);
+        a = {1'b0, 8'hFF, temp[22:0]};
+    endfunction
+
+    function automatic randomize_nan_b();
+        bit [31:0] temp;
+        std::randomize(temp);
+        b = {1'b0, 8'hFF, temp[22:0]};
+    endfunction
   
 ////////////////////////////////////////////// TASKS FOR TESTS //////////////////////////////////////////////
   
@@ -183,32 +196,32 @@ endtask
   task automatic test_infinity(input int value, input int a_b_both);
     repeat (value)@(posedge clk) begin
         if (a_b_both == 2) begin
-            set_a_to(32'h7F800000);
-            set_b_to(32'h7F800000);
+            set_a_to(INF);
+            set_b_to(INF);
             randomize_normal_b();
         end else if (a_b_both == 1) begin
-            set_a_to(32'h7F800000);
+            set_a_to(INF);
             randomize_normal_b();
         end else begin
-            set_b_to(32'h7F800000);
+            set_b_to(INF);
             randomize_normal_a();
         end
     end
-    endtask
+  endtask
 
   task automatic test_nan(input int value, input int a_b_both);
-    repeat (value)@(posedge clk) begin
-        if (a_b_both == 2) begin
-            set_a_to(32'h7FC00000);
-            set_b_to(32'h7FC00000);
-        end else if (a_b_both == 1) begin
-            set_a_to(32'h7FC00000);
-            randomize_normal_b();
-        end else begin
-            set_b_to(32'h7FC00000);
-            randomize_normal_a();
+        repeat (value)@(posedge clk) begin
+            if (a_b_both == 2) begin
+                randomize_nan_a();
+                randomize_nan_b();
+            end else if (a_b_both == 1) begin
+                randomize_nan_a();
+                randomize_normal_b();
+            end else begin
+                randomize_nan_b();
+                randomize_normal_a();
+            end
         end
-    end
   endtask
 
   task automatic test_reset_random(input int value);

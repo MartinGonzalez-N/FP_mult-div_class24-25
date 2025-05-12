@@ -1,0 +1,11 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++NoArgsToLog
+-COVOVERWRITE
+-COVERAGE
+u
+-COVTEST
+TEST_ZERO_RANDOM_MUL_DIV
+-UPDATE

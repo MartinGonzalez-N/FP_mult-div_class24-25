@@ -153,5 +153,12 @@ module assertsmodule #(parameter R_DLY = 23) (
     assert property (p_sign_correctness) 
     else $error("Error: Incorrect result sign");
 
+    property check_div_result;
+        @(posedge clk)(sel == 1) |-> (shortreal'(a) / shortreal'(b) == shortreal'(R));
+    endproperty
+    assert property (check_div_result)
+    else begin
+        $error("check_div_result: The divide operation is not correct. The result of the module is %0f and the expected result was %0f.", shortreal'(R), shortreal'(a) / shortreal'(b));
+    end
 
 endmodule
