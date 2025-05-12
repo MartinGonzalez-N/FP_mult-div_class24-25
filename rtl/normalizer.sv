@@ -16,30 +16,35 @@ module normalizer(
     
     wire [10:0] temp1;
     //reg [47:0] buffer1, buffer2;
-    reg [47:0] selected_mantissa; // selected mantissa depending on sel signal
+    reg [47:0] temp_mul, temp_div;
 
     // MUX to select between multiplication and division mantissas
-    always @(*) begin
-        if (sel) begin
-            selected_mantissa <= mantissa_div;
-        end else begin
-            selected_mantissa <= mantissa_mul;
-        end
-    end
 
-    assign mantissa_normalize = (selected_mantissa[47]) ? selected_mantissa[46:21] : selected_mantissa[45:20]; // MUX that normalizes the mantissa
-    assign temp1 = (selected_mantissa[47]) ? exponent_add + 1'b1 : exponent_add; // MUX that adjusts the exponent
+    assign temp_mul = (mantissa_mul[47]) ? mantissa_mul[46:21] : mantissa_mul[45:20]; // MUX that normalizes the mantissa
+    assign temp1 = (mantissa_mul[47]) ? exponent_add + 1'b1 : exponent_add; // MUX that adjusts the exponent
     assign exponent_single = temp1[7:0]; // Adjusts the exponent to the IEEE 754 standard format
-	
-    // Buffers to synchronize the output signal
-    /*always@(posedge clk or posedge arst) begin
-        if (arst) begin
-            buffer1 <= 0;
-            buffer2 <= 0;
-        end else if (en) begin
-            buffer1 <= selected_mantissa;
-            buffer2 <= buffer1;
-        end
-    end*/
+	assign temp_div = (mantissa_div[47]) ? mantissa_div[46:21] :
+                      (mantissa_div[47:46] == 2'b01) ? mantissa_div[45:20] :
+                      (mantissa_div[47:45] == 3'b001) ? mantissa_div[44:19] :
+                      (mantissa_div[47:44] == 4'b0001) ? mantissa_div[43:18] :
+                      (mantissa_div[47:43] == 5'b00001) ? mantissa_div[42:17] :
+                      (mantissa_div[47:42] == 6'b000001) ? mantissa_div[41:16] :
+                      (mantissa_div[47:41] == 7'b0000001) ? mantissa_div[40:15] :
+                      (mantissa_div[47:40] == 8'b00000001) ? mantissa_div[39:14] :
+                      (mantissa_div[47:39] == 9'b000000001) ? mantissa_div[38:13] :
+                      (mantissa_div[47:38] == 10'b0000000001) ? mantissa_div[37:12] :
+                      (mantissa_div[47:37] == 11'b00000000001) ? mantissa_div[36:11] :
+                      (mantissa_div[47:36] == 12'b000000000001) ? mantissa_div[35:10] :
+                      (mantissa_div[47:35] == 13'b0000000000001) ? mantissa_div[34:9] :
+                      (mantissa_div[47:34] == 14'b00000000000001) ? mantissa_div[33:8] :
+                      (mantissa_div[47:33] == 15'b000000000000001) ? mantissa_div[32:7] :
+                      (mantissa_div[47:32] == 16'b0000000000000001) ? mantissa_div[31:6] :
+                      (mantissa_div[47:31] == 17'b00000000000000001) ? mantissa_div[30:5] :
+                      (mantissa_div[47:30] == 18'b000000000000000001) ? mantissa_div[29:4] :
+                      (mantissa_div[47:29] == 19'b0000000000000000001) ? mantissa_div[28:3] :
+                      (mantissa_div[47:28] == 20'b00000000000000000001) ? mantissa_div[27:2] :
+                      (mantissa_div[47:27] == 21'b000000000000000000001) ? mantissa_div[26:1] :
+                      mantissa_div[25:0];
     
+    assign mantissa_normalize = sel ? temp_div : temp_mul;
 endmodule
